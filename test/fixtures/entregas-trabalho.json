@@ -1,0 +1,32 @@
+[
+  {
+    "testTitle": "deve cadastrar Ana, autenticá-la e registrar a entrega do trabalho de Matemática",
+    "dadosAluno": {
+      "nome": "Ana Ribeiro",
+      "email": "ana.ribeiro.teste@example.com",
+      "matricula": "MAT-TESTE-ANA-001",
+      "senha": "senha@123"
+    },
+    "disciplinaId": "disciplina-matematica",
+    "dadosTrabalho": {
+      "titulo": "Lista de exercícios automatizada",
+      "descricao": "Entrega criada pelo teste automatizado da disciplina de Matemática."
+    },
+    "statusCodeEsperado": 201
+  },
+  {
+    "testTitle": "deve cadastrar Bruno, autenticá-lo e registrar a entrega do trabalho de Programação Web",
+    "dadosAluno": {
+      "nome": "Bruno Ferreira",
+      "email": "bruno.ferreira.teste@example.com",
+      "matricula": "MAT-TESTE-BRU-002",
+      "senha": "senha@456"
+    },
+    "disciplinaId": "disciplina-programacao-web",
+    "dadosTrabalho": {
+      "titulo": "Landing page responsiva",
+      "descricao": "Entrega criada pelo teste automatizado da disciplina de Programação Web."
+    },
+    "statusCodeEsperado": 201
+  }
+]
