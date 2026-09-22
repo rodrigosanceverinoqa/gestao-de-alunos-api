@@ -1,0 +1,43 @@
+name: Testes de fluxo de entrega de trabalho pelo aluno
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  test:
+    name: Executar testes automatizados
+    runs-on: ubuntu-latest
+
+    env:
+      BASE_URL: http://localhost:3000
+      ADMIN_EMAIL: admin@escola.com
+      ADMIN_SENHA: admin123
+
+    steps:
+      - name: Baixar o código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Executar testes
+        run: |
+          npm start > api.log 2>&1 &
+          for i in {1..20}; do
+            if curl --fail --silent http://localhost:3000/; then
+              npm test
+              exit $?
+            fi
+            sleep 1
+          done
+          cat api.log
+          exit 1
