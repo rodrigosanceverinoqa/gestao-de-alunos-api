@@ -1,4 +1,4 @@
-name: Testes de API
+name: Testes de fluxo de entrega de trabalho pelo aluno
 
 on:
   workflow_dispatch:
